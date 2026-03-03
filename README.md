@@ -19,7 +19,7 @@ The API Gateway acts as a single entry point and routes incoming requests to the
 
 Client → API Gateway → Microservices
 
-- All external requests go through the API Gateway (Port 8084).
+- All external requests go through the API Gateway (Port 8080).
 - Each microservice runs independently on its own port.
 - Services are containerized using Docker and connected via Docker Compose.
 
@@ -54,7 +54,7 @@ Handles payment processing.
 
 ---
 
-### 4️⃣ API Gateway (Port 8084)
+### 4️⃣ API Gateway (Port 8080)
 Routes requests to the appropriate microservice.
 
 Example Routing:
@@ -66,7 +66,7 @@ Example Routing:
 
 ## 🌐 Base URL
 
-All API requests must go through: http://localhost:8084
+All API requests must go through: http://localhost:8080
 
 ---
 

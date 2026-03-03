@@ -1,101 +1,78 @@
 # Microservices Lab – SE4010
 
-## 📌 Project Overview
+## Project Overview
+This project is a simple microservices system built using Spring Boot and Spring Cloud Gateway.
 
-This project implements a simple microservices-based system using Spring Boot and Spring Cloud Gateway.
+It includes 4 services:
+- Item Service
+- Order Service
+- Payment Service
+- API Gateway
 
-The system consists of four independent microservices:
-
-- **Item Service**
-- **Order Service**
-- **Payment Service**
-- **API Gateway**
-
-The API Gateway acts as a single entry point and routes incoming requests to the appropriate microservice.
+The API Gateway is the single entry point. It forwards requests to the correct microservice.
 
 ---
 
-## 🏗️ System Architecture
-
+## System Architecture
 Client → API Gateway → Microservices
 
-- All external requests go through the API Gateway (Port 8080).
-- Each microservice runs independently on its own port.
-- Services are containerized using Docker and connected via Docker Compose.
+- All requests go through the API Gateway (Port 8080)
+- Each microservice runs on its own port
+- All services run using Docker + Docker Compose
 
 ---
 
-## 🧩 Microservices
+## Services and Ports
 
-### 1️⃣ Item Service (Port 8081)
+### 1) Item Service (Port 8081)
 Handles item management.
 
-**Responsibilities:**
-- Create new items
-- Retrieve all items
+Endpoints:
+- `GET /items` : get all items
+- `POST /items` : add a new item
+- `GET /items/{id}` : get item by index
 
----
+Example POST body:
+```json
+{ "name": "Headphones" }
+```
 
-### 2️⃣ Order Service (Port 8082)
-Handles customer orders.
+### 2) Order Service (Port 8082)
+Handles order management.
 
-**Responsibilities:**
-- Create new orders
-- Retrieve all orders
+Endpoints:
+- `GET /orders` : get all orders
+- `POST /orders` : place a new order
+- `GET /orders/{id}` : get order by id
 
----
+Example POST body:
+```json
+{ "item": "Laptop", "quantity": 2, "customerId": "C001" }
+```
 
-### 3️⃣ Payment Service (Port 8083)
+### 3) Payment Service (Port 8083)
 Handles payment processing.
 
-**Responsibilities:**
-- Process payments
-- Retrieve all payment records
+Endpoints:
+- `GET /payments` : get all payments
+- `POST /payments/process` : process a payment
+- `GET /payments/{id}` : get payment by id
 
----
+Example POST body:
+```json
+{ "orderId": 1, "amount": 1299.99, "method": "CARD" }
+```
 
-### 4️⃣ API Gateway (Port 8080)
-Routes requests to the appropriate microservice.
+### 4) API Gateway (Port 8080)
+Routes requests to the correct microservice.
 
-Example Routing:
+Routing:
 - `/items/**` → Item Service
 - `/orders/**` → Order Service
 - `/payments/**` → Payment Service
 
----
-
-## 🌐 Base URL
-
-All API requests must go through: http://localhost:8080
-
----
-
-## 🐳 Docker Setup
-
-### 1️⃣ Build JAR files
-
-Run inside each service folder:
-
-`mvn clean package -DskipTests`
-
-### 2️⃣ Build Docker Images
-
-From project root:
-
-`docker compose build`
-
-### 3️⃣ Run All Services
-
-`docker compose up`
-
-Or run in background:
-
-`docker compose up -d`
-
----
-
-## 📮 API Testing Evidence
-
-The Postman collection used for testing is available in:
-
-📁 **postman/Microservices_Lab.postman_collection.json**
+## Base URL
+All requests should be sent through the gateway:
+```
+http://localhost:8080
+```

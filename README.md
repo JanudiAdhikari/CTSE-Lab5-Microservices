@@ -76,3 +76,47 @@ All requests should be sent through the gateway:
 ```
 http://localhost:8080
 ```
+
+## Docker Setup
+
+### Step 1: Build JAR files
+Run this inside each service folder:
+```bash
+mvn clean package -DskipTests
+```
+
+Do this for:
+- `item-service`
+- `order-service`
+- `payment-service`
+- `api-gateway`
+
+### Step 2: Build Docker images
+From the project root folder:
+```bash
+docker compose build
+```
+
+### Step 3: Run all services
+From the project root folder:
+```bash
+docker compose up
+```
+
+To run in background:
+```bash
+docker compose up -d
+```
+
+To stop:
+```bash
+docker compose down
+```
+
+## API Testing (Postman)
+Postman collection is included in:
+```
+postman/Microservices_Lab.postman_collection.json
+```
+
+You can import it and test all endpoints through the gateway.

@@ -1,0 +1,99 @@
+{
+  "info": {
+    "_postman_id": "ebb12e81-ff43-4daa-9f37-b8bbcc43b162",
+    "name": "Microservices Lab",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Add Items",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8084/items",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["items"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Items",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8084/items",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["items"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Orders",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8084/orders",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["orders"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Orders",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8084/orders",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["orders"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Payments",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8084/payments/process",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["payments", "process"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Payements",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8084/payments",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8084",
+          "path": ["payments"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

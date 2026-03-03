@@ -1,4 +1,4 @@
-# Microservices Lab – SE4010
+# 🧩 Microservices Lab – SE4010
 
 ## Project Overview
 This project is a simple microservices system built using Spring Boot and Spring Cloud Gateway.
